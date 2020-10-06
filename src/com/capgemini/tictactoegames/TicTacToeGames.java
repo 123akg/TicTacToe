@@ -38,12 +38,34 @@ public class TicTacToeGames {
 					return inputs;
 			            
 				}
+				
+				//UC3 : Show TTT Game Board
+				private void showBoard(char[] boardInputs) {
+					int i, j = 0;
+					int boardPosition = 1;
+					char[][] gameBoard = new char[3][3];
+					System.out.println("TTT Game Board Displaying: ");
+					for (i = 0; i < 3; i++) {
+						
+						for (j = 0; j < 3; j++) {
+							gameBoard[i][j] = boardInputs[boardPosition];
+							System.out.print(gameBoard[i][j]);
+							if (j < 2)
+								System.out.print(" | ");
+							boardPosition++;
+						}
+						System.out.println();
+						if (i < 2)
+							System.out.println("____________");
+					}
+				}
 			
 
 		public static void main(String[] args) throws Exception {
 			TicTacToeGames gameObject = new TicTacToeGames();
 			char[] newBoard = gameObject.createBoard();
 			char[] inputs= gameObject.userInput();	
+			gameObject.showBoard(newBoard);
 		}
 
 	}
