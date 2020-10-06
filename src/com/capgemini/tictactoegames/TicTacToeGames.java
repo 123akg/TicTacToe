@@ -60,12 +60,26 @@ public class TicTacToeGames {
 					}
 				}
 			
+				//UC 4 : Check for Empty Position
+				private boolean moveToPosition(char[] boardInputs, int boardPosition) {
+					boolean isEmpty = false;
+					if (boardPosition >= 1 && boardPosition <= 9) {
+						if (boardInputs[boardPosition] == ' ')
+							isEmpty = true;
+					} else
+						System.out.println("Invalid position entered");
+					return isEmpty;
+				}
 
 		public static void main(String[] args) throws Exception {
 			TicTacToeGames gameObject = new TicTacToeGames();
 			char[] newBoard = gameObject.createBoard();
 			char[] inputs= gameObject.userInput();	
 			gameObject.showBoard(newBoard);
+			System.out.println("Select position from 1 to 9 : ");
+			int boardPosition=sc.nextInt();
+			boolean isEmptyPosition=gameObject.moveToPosition(newBoard,boardPosition);
+			System.out.println("Position is Empty : "+isEmptyPosition);
 		}
 
 	}
